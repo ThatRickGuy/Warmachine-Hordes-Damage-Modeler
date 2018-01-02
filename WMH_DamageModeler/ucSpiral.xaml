@@ -1,0 +1,185 @@
+﻿<UserControl x:Class="WMH_DamageModeler.ucSpiral"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WMH_DamageModeler"
+             mc:Ignorable="d" >
+    <Grid x:Name="grdBoxes">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition> 
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+            <ColumnDefinition Width="11"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Rectangle Grid.ColumnSpan="9999" Grid.RowSpan="2">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3A2D1E" Offset="0"/>
+                    <GradientStop Color="#FFFFCD96" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFE5C5" Offset="0"/>
+                    <GradientStop Color="#FF9B7142" Offset="1"/>
+                    <GradientStop Color="#FFFFB25D" Offset="0.064"/>
+                    <GradientStop Color="#FFFFB25D" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Grid.Column="2" Grid.ColumnSpan="9999" HorizontalAlignment="Center"  Margin="0,-3,0,0" >Column</Label>
+        <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,-3,0,0" HorizontalAlignment="Center" >1</Label>
+        <Label Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"  Margin="0,-3,0,0" HorizontalAlignment="Center" >2</Label>
+        <Label Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2"  Margin="0,-3,0,0" HorizontalAlignment="Center" >3</Label>
+        <Label Grid.Row="1" Grid.Column="8" Grid.ColumnSpan="2"  Margin="0,-3,0,0" HorizontalAlignment="Center" >4</Label>
+        <Label Grid.Row="1" Grid.Column="10" Grid.ColumnSpan="2"  Margin="0,-3,0,0" HorizontalAlignment="Center" >5</Label>
+        <Label Grid.Row="1" Grid.Column="12" Grid.ColumnSpan="2"  Margin="0,-3,0,0" HorizontalAlignment="Center" >6</Label>
+
+        <Rectangle Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="9999">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3A2D1E" Offset="0"/>
+                    <GradientStop Color="#FFFFCD96" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFE5C5" Offset="0"/>
+                    <GradientStop Color="#FF9B7142" Offset="1"/>
+                    <GradientStop Color="#FFFFB25D" Offset="0.064"/>
+                    <GradientStop Color="#FFFFB25D" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Label Grid.Column="0" Grid.Row="1" Grid.RowSpan="9999" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <Label.LayoutTransform >
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.LayoutTransform > Box
+        </Label>
+        <Label Grid.Column="1" Grid.Row="2" Margin="0,-3,0,0">12</Label>
+        <Label Grid.Column="1" Grid.Row="3" Margin="0,-3,0,0">11</Label>
+        <Label Grid.Column="1" Grid.Row="4" Margin="0,-3,0,0">10</Label>
+        <Label Grid.Column="1" Grid.Row="5" Margin="0,-3,0,0">9</Label>
+        <Label Grid.Column="1" Grid.Row="6" Margin="0,-3,0,0">8</Label>
+        <Label Grid.Column="1" Grid.Row="7" Margin="0,-3,0,0">7</Label>
+        <Label Grid.Column="1" Grid.Row="8" Margin="0,-3,0,0">6</Label>
+        <Label Grid.Column="1" Grid.Row="9" Margin="0,-3,0,0">5</Label>
+        <Label Grid.Column="1" Grid.Row="10" Margin="0,-3,0,0">4</Label>
+        <Label Grid.Column="1" Grid.Row="11" Margin="0,-3,0,0">3</Label>
+        <Label Grid.Column="1" Grid.Row="12" Margin="0,-3,0,0">2</Label>
+        <Label Grid.Column="1" Grid.Row="13" Margin="0,-3,0,0">1</Label>
+        
+        <local:ucBubble Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="13" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="12" BoxSystem="Mind"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="13" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="12" BoxSystem="Body"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="13" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="12" BoxSystem="Spirit"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="11" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="10" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="9" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="8" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="7" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="6" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" BoxSystem="Mind"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="11" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="10" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="9" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="8" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="7" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="6" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="5" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="4" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="3" BoxSystem="Mind"></local:ucBubble>
+        <local:ucBubble Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="2" BoxSystem="Mind"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="11" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="10" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="9" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="8" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="7" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="6" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="5" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="4" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="3" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2" BoxSystem="Body"></local:ucBubble>
+
+
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="11" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="10" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="9" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="8" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="7" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="6" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="5" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="4" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="3" BoxSystem="Body"></local:ucBubble>
+        <local:ucBubble Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="2" BoxSystem="Body"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="11" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="10" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="9" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="8" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="7" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="6" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="5" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="4" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="3" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="2" BoxSystem="Spirit"></local:ucBubble>
+
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="11" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="10" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="9" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="8" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="7" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="6" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="5" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="4" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="3" BoxSystem="Spirit"></local:ucBubble>
+        <local:ucBubble Grid.Column="12" Grid.ColumnSpan="2" Grid.Row="2" BoxSystem="Spirit"></local:ucBubble>
+    </Grid>
+
+    
+</UserControl>

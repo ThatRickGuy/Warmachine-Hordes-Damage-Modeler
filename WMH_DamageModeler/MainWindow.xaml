@@ -1,0 +1,172 @@
+﻿<Window x:Name="MainWindow1"
+        x:Class="WMH_DamageModeler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WMH_DamageModeler"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="870" Width="740" Icon="Resources/RingDev.PNG"  >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="356"></ColumnDefinition>
+            <ColumnDefinition Width="10"></ColumnDefinition>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="4">
+            <Image Source="Resources/RingDev.PNG" Width="48" Height="48" VerticalAlignment="top"></Image>
+            <TextBlock Grid.Column="1" FontSize="36" Grid.Row="1" VerticalAlignment="Center" FontFamily="Goudy Old Style" FontWeight="Bold" Margin="20,0,0,0" >
+             WM/H Damage Modeler
+            </TextBlock>
+        </StackPanel>
+        
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center">
+            <Label VerticalAlignment="Center" Margin="4">Iterations</Label>
+            <TextBox x:Name="txtIterations" VerticalContentAlignment="Center"  Width="75" Margin="4">5000</TextBox>
+            <Button x:Name="button" Margin="4" VerticalAlignment="Top" Padding="4" Click="button_Click">
+                Model Damage!
+            </Button>
+        </StackPanel>
+
+
+        <!--ATTACKER-->
+        <TextBlock Grid.Column="1" FontSize="24" Grid.Row="1">
+            <Span FontFamily="Old English Text MT" FontSize="48" >A</Span>ttacker
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <Button Margin="4,4,4,0" x:Name="btnLoadAttacker" Height="20" VerticalAlignment="Top" Click="btnLoadAttacker_Click">Load</Button>
+            <Button Margin="4" x:Name="btnSaveAttacker" Click="btnSaveAttacker_Click">Save</Button>
+        </StackPanel>
+        <Grid Grid.Column="1" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <Label>MAT</Label>
+                <TextBox x:Name="txtMAT" Width="50px" Margin="4" Text="{Binding Attacker.MAT, ElementName=MainWindow1}"></TextBox>
+            </StackPanel>
+            <ScrollViewer VerticalAlignment="Stretch"  Grid.Row="1">
+                <StackPanel x:Name="stkAttacks"></StackPanel>
+            </ScrollViewer>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  Grid.Row="3">
+                <TextBlock ToolTip="Weapon number only matters if you have one or more weapons with Sustained Attack. Adding by weapon will copy the stats of the existing weapon!">Add Attack <LineBreak/>
+                    with weapon:</TextBlock>
+                <Button x:Name="btnAddAttack1" Width="22" Padding="4" Margin="4"  Click="btnAddAttack_Click">1</Button>
+                <Button x:Name="btnAddAttack2" Width="22" Padding="4" Margin="4" Click="btnAddAttack_Click">2</Button>
+                <Button x:Name="btnAddAttack3" Width="22" Padding="4" Margin="4" Click="btnAddAttack_Click">3</Button>
+                <Button x:Name="btnAddAttack4" Width="22" Padding="4" Margin="4" Click="btnAddAttack_Click">4</Button>
+                <Button x:Name="btnRemoveAttack" Width="auto" Padding="4" Margin="4" Click="btnRemoveAttack_Click">Remove Attacks</Button>
+            </StackPanel>
+
+        </Grid>
+
+
+
+
+
+        <!--DEFENDER-->
+        <TextBlock Grid.Column="3" FontSize="24" Grid.Row="1">
+            <Span FontFamily="Old English Text MT" FontSize="48" >D</Span>efender
+        </TextBlock>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3">
+            <Button Margin="4" x:Name="btnLoadDefender" Click="btnLoadDefender_Click">Load</Button>
+            <Button Margin="4" x:Name="btnSaveDefender" Click="btnSaveDefender_Click">Save</Button>
+        </StackPanel>
+        <ScrollViewer Grid.Column="3" Grid.Row="3">
+
+
+            <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Defense</Label>
+                    <TextBox x:Name="txtDEF" Width="50" Margin="4" Text="{Binding Defender.Defense, ElementName=MainWindow1}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Charge Defense</Label>
+                    <TextBox x:Name="txtDEFCharge" Width="50px" Margin="4" Text="{Binding Defender.DefenseCharge, ElementName=MainWindow1}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Is Auto Hit In Melee</Label>
+                    <CheckBox x:Name="chkIsAutoHitInMelee" Margin="4,5" IsChecked="{Binding Defender.IsAutoHitInMelee, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>One Less Attack Die</Label>
+                    <CheckBox x:Name="chkOneLessAttackDie" Margin="4,5" IsChecked="{Binding Defender.OneLessAttackDie, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label>Attack Roll Additional Die, Drop the Highest:</Label>
+                    <CheckBox x:Name="chkAttackRollAdditionalDropHighest" Margin="4,5" IsChecked="{Binding Defender.IsAdd1DropHighestDefense, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Immune to Knock Down:</Label>
+                    <CheckBox x:Name="chkImmuneToKnockDown" Margin="4,5" IsChecked="{Binding Defender.IsImmuneToKnockDown, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Immune to Stationary:</Label>
+                    <CheckBox x:Name="chkImmuneToStationary" Margin="4,5" IsChecked="{Binding Defender.IsImmuneToStationary, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Field Generator Shield Boxes</Label>
+                    <TextBox x:Name="txtFieldGeneratorShieldBoxes" Width="50px" Margin="4" Text="{Binding Defender.FieldGeneratorShieldBoxes, ElementName=MainWindow1}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Armor</Label>
+                    <TextBox x:Name="txtARM" Width="50px" Margin="4" Text="{Binding Defender.Armor, ElementName=MainWindow1}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Charge Armor</Label>
+                    <TextBox x:Name="txtARMCharge" Width="50px" Margin="4" Text="{Binding Defender.ArmorCharge, ElementName=MainWindow1}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Armor Bonus</Label>
+                    <TextBox x:Name="txtArmorBonus" Width="50px" Margin="4" Text="{Binding Defender.ArmorBonus, ElementName=MainWindow1}"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>One Less Damage Die</Label>
+                    <CheckBox x:Name="chkOneLessDamageDie" Margin="4,5" IsChecked="{Binding Defender.OneLessDamageDie, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label>Attack Roll Additional Die, Drop the Highest:</Label>
+                    <CheckBox x:Name="chkDamageRollAdditionalDropHighest" Margin="4,5" IsChecked="{Binding Defender.IsAdd1DropHighestArmor, ElementName=MainWindow1}"></CheckBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Label>Armor Bonus System</Label>
+                    <ComboBox x:Name="cboArmorBonusSystem" Margin="4,5" SelectedValue="{Binding Defender.ArmorSystem, ElementName=MainWindow1}" Width="50">
+                        <ComboBoxItem>Left Arm</ComboBoxItem>
+                        <ComboBoxItem>Right Arm</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" >
+                    <Label>System Armor Bonus</Label>
+                    <TextBox x:Name="txtSystemArmorBonus" Margin="4,5" Text="{Binding Defender.ArmorSystemBonus, ElementName=MainWindow1}" Width="50px"></TextBox>
+                </StackPanel>
+
+                <TabControl Grid.Column="1" Grid.Row="1" x:Name="tabGrid" SelectionChanged="tabGrid_SelectionChanged" SelectedIndex="1">
+                    <TabItem Header="Warjack Grid" >
+                        <local:ucGrid x:Name="GridControl"  Width="308" Height="278" ToolTip="Right Click on a box to set the System"></local:ucGrid>
+                    </TabItem>
+                    <TabItem Header="Warbeast Spiral" >
+                        <local:ucSpiral  x:Name="SpiralControl" Width="308" Height="312"></local:ucSpiral>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

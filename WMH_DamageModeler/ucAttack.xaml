@@ -1,0 +1,184 @@
+﻿<UserControl x:Name="ucAttack1"
+             x:Class="WMH_DamageModeler.ucAttack"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WMH_DamageModeler"
+             mc:Ignorable="d" >
+    <Grid>
+        <Rectangle>
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF464646" Offset="0"/>
+                    <GradientStop Color="#FFA0A0A0" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF5D5D5D" Offset="1"/>
+                    <GradientStop Color="#FEAAA9A9" Offset="0.09"/>
+                    <GradientStop Color="#FEB1B0B0" Offset="0.982"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnVisibility" Width="22" Height="22" FontSize="24" Padding="-1,-9,0,0" Click="btnVisibility_Click">-</Button>
+                <Label>Sequence:</Label>
+                <Label x:Name="lblSequence" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding Attack.Sequence, ElementName=ucAttack1}"></Label>
+            </StackPanel>
+            <Grid x:Name="grdAttackDetails">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="108*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.ColumnSpan="2">
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Weapon #:</Label>
+                        <TextBox x:Name="txtWeaponNumber" Width="25" VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Attack.WeaponSystem, ElementName=ucAttack1}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Is Melee Attack:</Label>
+                        <CheckBox x:Name="chkIsMeleeAttack" Margin="4,5" IsChecked="{Binding Attack.IsMeleeAttack, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Is Charge:</Label>
+                        <CheckBox x:Name="chkIsCharge" Margin="4,5" IsChecked="{Binding Attack.IsCharge, ElementName=ucAttack1}" Checked="chkIsCharge_Checked"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Attack Roll Boosted:</Label>
+                        <CheckBox x:Name="chkAttackRollBoosted" Margin="4,5" IsChecked="{Binding Attack.AttackRollBoosted, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Attack Roll Additional Dice:</Label>
+                        <TextBox x:Name="txtAttackRollAdditionalDice" Width="25" VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Attack.AttackRollAdditionalDice, ElementName=ucAttack1}"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Attack Roll Additional Die, Drop the Lowest:</Label>
+                        <CheckBox x:Name="chkAttackRollAdditionalDropLowest" Margin="4,5" IsChecked="{Binding Attack.IsAdd1DropLowestAttack, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Attack Roll Bonus:</Label>
+                        <TextBox x:Name="txtAttackRollBonus" Width="25" VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Attack.AttackRollBonus, ElementName=ucAttack1}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>P+S:</Label>
+                        <TextBox x:Name="txtPS" Width="25" VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Attack.PS, ElementName=ucAttack1}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Damage Roll Boosted:</Label>
+                        <CheckBox x:Name="chkDamageRollBoosted" Margin="4,5" IsChecked="{Binding Attack.DamageRollBoosted, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Damage Roll Additional Dice:</Label>
+                        <TextBox x:Name="txtDamageRollAdditionalDice" Width="25" VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Attack.DamageRollAdditionalDice, ElementName=ucAttack1}"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Damage Roll Additional Die, Drop the Lowest:</Label>
+                        <CheckBox x:Name="chkDamageRollAdditionalDropLowest" Margin="4,5" IsChecked="{Binding Attack.IsAdd1DropLowestDamage, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Damage Roll Bonus:</Label>
+                        <TextBox x:Name="txtDamageRollBonus" Width="25" VerticalContentAlignment="Center" TextAlignment="Center" Text="{Binding Attack.DamageRollBonus, ElementName=ucAttack1}"></TextBox>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Chain Weapon:</Label>
+                        <CheckBox x:Name="chkIsChainWeapon" Margin="4,5" IsChecked="{Binding Attack.IsChainWeapon, ElementName=ucAttack1}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Armor Piercing:</Label>
+                        <CheckBox x:Name="chkArmorPiercing" Margin="4,5" IsChecked="{Binding Attack.ArmorPiercing, ElementName=ucAttack1}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Armor Piercing:</Label>
+                        <CheckBox x:Name="chkArmorPiercingCrit" Margin="4,5" IsChecked="{Binding Attack.ArmorPiercingCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Decapatation:</Label>
+                        <CheckBox x:Name="chkDecapatation" Margin="4,5" IsChecked="{Binding Attack.Decapatation, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Decapatation:</Label>
+                        <CheckBox x:Name="chkDecapatationCrit" Margin="4,5" IsChecked="{Binding Attack.DecapatationCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Amputation:</Label>
+                        <CheckBox x:Name="chkAmputation" Margin="4,5" IsChecked="{Binding Attack.Amputation, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Amputation:</Label>
+                        <CheckBox x:Name="chkAmputationCrit" Margin="4,5" IsChecked="{Binding Attack.AmputationCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Brutal:</Label>
+                        <CheckBox x:Name="chkBrutal" Margin="4,5" IsChecked="{Binding Attack.Brutal, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Brutal:</Label>
+                        <CheckBox x:Name="chkBrutalCrit" Margin="4,5" IsChecked="{Binding Attack.BrutalCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Auto Hits:</Label>
+                        <CheckBox x:Name="chkAutoHits" Margin="4,5" IsChecked="{Binding Attack.AutoHits, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Sustained Attack:</Label>
+                        <CheckBox x:Name="chkSustainedAttack" Margin="4,5" IsChecked="{Binding Attack.SustainedAttack, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Sustained Attack:</Label>
+                        <CheckBox x:Name="chkSustainedAttackCrit" Margin="4,5" IsChecked="{Binding Attack.SustainedAttackCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Knock Down:</Label>
+                        <CheckBox x:Name="chkKnockDown" Margin="4,5" IsChecked="{Binding Attack.KnockDown, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Knock Down</Label>
+                        <CheckBox x:Name="chkKnockDownCrit" Margin="4,5" IsChecked="{Binding Attack.KnockDownCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Stationary:</Label>
+                        <CheckBox x:Name="chkStationary" Margin="4,5" IsChecked="{Binding Attack.Stationary, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Stationary</Label>
+                        <CheckBox x:Name="chkStationaryCrit" Margin="4,5" IsChecked="{Binding Attack.StationaryCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Continuous Fire:</Label>
+                        <CheckBox x:Name="chkContinuousFire" Margin="4,5" IsChecked="{Binding Attack.ContinuousFire, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Continuous Fire:</Label>
+                        <CheckBox x:Name="chkContinuousFireCrit" Margin="4,5" IsChecked="{Binding Attack.ContinuousFireCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Continuous Corrosion:</Label>
+                        <CheckBox x:Name="chkContinuousCorrosion" Margin="4,5" IsChecked="{Binding Attack.ContinuousCorrosion, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Crit Continuous Corrosion:</Label>
+                        <CheckBox x:Name="chkContinuousCorrosionCrit" Margin="4,5" IsChecked="{Binding Attack.ContinuousCorrosionCrit, ElementName=ucAttack1}"></CheckBox>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <!--
+        public bool ContinuousFire { get; set; }
+        public bool ContinuousFireCrit { get; set; }
+        public bool ContinuousCorrosion { get; set; }
+        public bool ContinuousCorrosionCrit { get; set; }
+            -->
+        </StackPanel>
+    </Grid>
+</UserControl>
