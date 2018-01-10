@@ -137,13 +137,30 @@ namespace WMH_DamageModeler
 
                     if (AR.DamageDone < 0) AR.DamageDone = 0;
 
+                    // Focus
+                    if (AR.DamageDone >= 5 && Defender.Focus > 0)
+                    {
+                        AR.DamageDone -= 5;
+                        Defender.Focus -= 1;
+                    }
+
+
+                    // Fury
+                    if (AR.DamageDone > Defender.Grid.GetRemainingBoxCount() && Defender.Fury > 0)
+                    {
+                        AR.DamageDone = 0;
+                        Defender.Fury -= 1;
+                    }
+
+
                     var DamageRemaining = AR.DamageDone;
                     var DamageAbsorbedByFieldGeneratorShield = FieldGeneratorShieldBoxes - DamageRemaining;
-                    if (DamageAbsorbedByFieldGeneratorShield <0 ) DamageAbsorbedByFieldGeneratorShield = FieldGeneratorShieldBoxes;
+                    if (DamageAbsorbedByFieldGeneratorShield < 0) DamageAbsorbedByFieldGeneratorShield = FieldGeneratorShieldBoxes;
                     FieldGeneratorShieldBoxes -= DamageAbsorbedByFieldGeneratorShield;
                     DamageRemaining -= DamageAbsorbedByFieldGeneratorShield;
 
                     AR.BoxesChanged = Defender.Grid.ApplyDamage(DamageRemaining, AR.StartingColumn);
+
 
                     // Amputation (after damage)
                     if ((AR.AttackResult == AttackRollResults.Crit && Attack.AmputationCrit) || Attack.Amputation)
@@ -155,24 +172,12 @@ namespace WMH_DamageModeler
                     if ((AR.AttackResult == AttackRollResults.Crit && Attack.ContinuousFireCrit) || Attack.ContinuousFire)
                     {
                         AR.DefenderIsOnFire = true;
-                        if (Dice.Roll(1, false, false).TotalRoll > 2)
-                        {
-                            //POW 12 damage roll
-                            //This is overly simplified, it goes by the same ARM that the attack was made at, so it will be inaccurate if the model 
-                            //has buffs to ARM against enemy models/attacks only. 
-                            AR.BoxesChanged.AddRange(Defender.Grid.ApplyDamage(12 + Dice.Roll(2, false, false).TotalRoll - AR.ARM, Dice.Roll(1, false, false).TotalRoll));
-                        }
                     }
 
                     //Corrosion
                     if ((AR.AttackResult == AttackRollResults.Crit && Attack.ContinuousCorrosionCrit) || Attack.ContinuousCorrosion)
                     {
                         AR.DefenderIsCorroded = true;
-                        if (Dice.Roll(1, false, false).TotalRoll > 2)
-                        {
-                            //1 point of damage
-                            AR.BoxesChanged.AddRange(Defender.Grid.ApplyDamage(1, Dice.Roll(1, false, false).TotalRoll));
-                        }
                     }
 
 
@@ -180,6 +185,29 @@ namespace WMH_DamageModeler
 
             }
 
+            // Fire
+            if ((from p in l_return where p.DefenderIsOnFire select p).Count() > 0)
+                if (Dice.Roll(1, false, false).TotalRoll > 2)
+                {
+                    //POW 12 damage roll
+                    //This is overly simplified, it goes by the same ARM that the attack was made at, so it will be inaccurate if the model 
+                    //has buffs to ARM against enemy models/attacks only. 
+                    var AR = new AttackResolution();
+                    AR.DamageDone = 12 + Dice.Roll(2, false, false).TotalRoll - AR.ARM;
+                    AR.BoxesChanged = Defender.Grid.ApplyDamage(AR.DamageDone, Dice.Roll(1, false, false).TotalRoll);
+                    l_return.Add(AR);
+                }
+
+            // Corrosion 
+            if ((from p in l_return where p.DefenderIsCorroded select p).Count() > 0)
+                if (Dice.Roll(1, false, false).TotalRoll > 2)
+                {
+                    //1 point of damage
+                    var AR = new AttackResolution();
+                    AR.DamageDone = 1;
+                    AR.BoxesChanged = Defender.Grid.ApplyDamage(AR.DamageDone, Dice.Roll(1, false, false).TotalRoll);
+                    l_return.Add(AR);
+                }
 
 
             return l_return;

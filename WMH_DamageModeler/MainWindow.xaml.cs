@@ -100,6 +100,12 @@ namespace WMH_DamageModeler
             for (int i = 1; i <= Iterations; i++)
             {
                 _Defender.Grid = ((iUCDamageGrid)((tabGrid.SelectedItem as TabItem).Content)).GetGrid();
+                int Focus = 0;
+                int.TryParse(txtFocus.Text, out Focus);
+                _Defender.Focus = Focus;
+                int Fury = 0;
+                int.TryParse(txtFury.Text, out Fury);
+                _Defender.Fury = Fury;
                 var results = dm.ModelDamage(_Attacker, _Defender);
 
                 Simulations.Add(results);

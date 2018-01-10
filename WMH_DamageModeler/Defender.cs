@@ -44,6 +44,9 @@ namespace WMH_DamageModeler
         public bool OneLessDamageDie { get; set; }
         public bool IsAdd1DropHighestArmor { get; set; }
 
+        public int Focus { get; set; }
+        public int Fury { get; set; }
+
         public DamageGrid Grid;
         
         public event PropertyChangedEventHandler PropertyChanged;

@@ -100,6 +100,13 @@ namespace WMH_DamageModeler
             }
             return l_return;
         }
+
+        public int GetRemainingBoxCount()
+        {
+            var i_return = 0;
+            i_return= (from p in SortedBoxes where p.State == BoxState.Open select p).Count();
+            return i_return;
+        }
     }
 }
 
